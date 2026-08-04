@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>30日間脂肪燃焼ブートキャンプ｜Memoro Bridal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=1" />
+<link rel="stylesheet" href="redesign.css?v=1" />
+<link rel="stylesheet" href="pc.css?v=1" />
+<link rel="stylesheet" href="fatburn.css?v=1" />
+</head>
+<body class="lx">
+
+<!-- ▼ ブートキャンプ識別バナー（自己完結・命名規則「30日間〇〇ブートキャンプ」） -->
+<style>
+.bc-banner{text-align:center;background:linear-gradient(180deg,#F4EEE2,#FBF7F1);border-bottom:1px solid #E7DCCA;padding:12px 20px 14px;font-family:'Shippori Mincho','Noto Serif JP',serif}
+.bc-banner .bc-eyebrow{display:block;font-family:'Noto Sans JP',system-ui,sans-serif;font-size:10px;letter-spacing:.32em;font-weight:700;color:#B89A6A;margin-bottom:6px}
+.bc-banner .bc-title{font-weight:700;font-size:clamp(1.02rem,3.6vw,1.22rem);letter-spacing:.08em;color:#473F36}
+.bc-banner .bc-title .bc-ico{margin-right:.4em}
+.bc-banner .bc-title b{color:#B89A6A;font-weight:700}
+</style>
+<div class="bc-banner">
+  <span class="bc-eyebrow">30-DAY FAT BURN BOOTCAMP</span>
+  <span class="bc-title"><span class="bc-ico">🔥</span>30日間<b>脂肪燃焼</b>ブートキャンプ</span>
+</div>
+
+<div class="lx-topbar">30-DAY FAT BURN — ドレスの日に、いちばん引き締まったあなたへ。</div>
+
+<header class="lx-header">
+  <a class="lx-logo" href="#top">
+    <span class="lx-logo-mark">M</span>
+    <span class="lx-logo-text">Memoro<em>Bridal</em></span>
+  </a>
+  <nav class="lx-nav">
+    <a href="#about">特徴</a>
+    <a href="#start" class="js-reveal">プランを作る</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="lx-hero" id="top">
+  <div class="lx-hero-bg" aria-hidden="true"></div>
+  <div class="lx-hero-inner">
+    <p class="lx-hero-eyebrow">Burn &amp; Shape for your special day</p>
+    <h1 class="lx-hero-title">30日で、<br><i>燃やして、引き締める。</i></h1>
+    <p class="lx-hero-lead">
+      いまの体・気になる部位・とれる時間に合わせて、<br>
+      <strong>あなた専用の30日 脂肪燃焼プラン</strong>を自動作成。<br>
+      筋トレ＋燃焼サーキットで、自宅で無理なく引き締めます。
+    </p>
+    <a href="#start" class="lx-btn lx-btn-gold js-reveal">わたしの30日燃焼プランを作る</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="lx-about" id="about">
+  <div class="lx-about-item"><span class="lx-about-no">01</span><h3>質問に答える</h3><p>引き締めたい部位・とれる時間・いまの運動習慣など、かんたんな質問に答えるだけ。</p></div>
+  <div class="lx-about-item"><span class="lx-about-no">02</span><h3>燃焼プランが完成</h3><p>部位トレ＋全身の燃焼サーキットを、30日ぶん自動で組み立て。食事の基本もセットで。</p></div>
+  <div class="lx-about-item"><span class="lx-about-no">03</span><h3>毎日ひらいて実践</h3><p>各日をひらくと、その日の種目・やり方・サーキットの周回がひと目で分かります。</p></div>
+</section>
+
+<!-- START / 問診 -->
+<section class="lx-start" id="start" hidden>
+  <div class="lx-sec-head">
+    <span class="lx-sec-no">START</span>
+    <h2 class="lx-sec-title">あなたのことを教えてください</h2>
+    <p class="lx-sec-sub">回答から、脂肪燃焼×引き締めの30日プランを組み立てます。所要1〜2分。</p>
+  </div>
+  <div class="bm-panel">
+    <div id="bm-questions"></div>
+    <div class="bm-progress"><div id="bm-progress-bar"></div></div>
+    <div id="bm-progress-text" class="bm-progress-text"></div>
+    <div class="lx-actions" style="margin-top:28px">
+      <button class="lx-btn lx-btn-gold" id="bm-generate">わたしの30日燃焼プランを作る</button>
+    </div>
+    <p class="lx-disclaimer" id="bm-start-disc"></p>
+  </div>
+</section>
+
+<!-- RESULT / プラン -->
+<section class="lx-section-wrap" id="bm-result" hidden>
+  <div id="bm-result-body"></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="lx-footer">
+  <div class="lx-foot-brand">Memoro<em>Bridal</em></div>
+  <p class="lx-foot-disc" id="bm-foot-disc"></p>
+  <div class="lx-foot-copy">© 2026 Memoro</div>
+</footer>
+
+<!-- 日別詳細モーダル -->
+<div id="bm-day-modal" class="bm-modal" hidden>
+  <div class="bm-modal-inner">
+    <button class="bm-modal-close" id="bm-day-close" aria-label="閉じる">×</button>
+    <div id="bm-day-body"></div>
+  </div>
+</div>
+
+<div id="bm-loading" class="pc-loading" hidden><div class="pc-spin"></div><span id="bm-loading-text">プランを作成しています…</span></div>
+
+<script type="module" src="fatburn-app.js?v=5"></script>
+</body>
+</html>

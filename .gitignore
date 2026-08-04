@@ -1,0 +1,11 @@
+server.js
+storage.js
+.DS_Store
+*.log
+node_modules/
+
+# skeletal-tool由来の未使用画像（fatburnは hero-bride.png / sk-hero.png のみ使用）
+assets/q-q*.png
+assets/type-natural.png
+assets/type-straight.png
+assets/type-wave.png
