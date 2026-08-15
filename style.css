@@ -6,8 +6,8 @@ html,body{margin:0;padding:0}
 :root{
   /* Soft Pastel LP Palette — cream × blush × sage（studio clori 参考）
      ※ 元の変数名を踏襲し値だけ差替（既存ルールが自動で再テーマ化）*/
-  --bg:#FBF7F1;
-  --bg-2:#F3EBDD;
+  --bg:#FFFDFC;
+  --bg-2:#FAF6F1;
   --surface:#FFFFFF;
   --surface-2:#FAF5EC;
   --ink:#473F36;

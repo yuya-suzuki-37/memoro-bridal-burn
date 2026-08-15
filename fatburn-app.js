@@ -4,7 +4,7 @@
 // 日別 = ウォームアップ → 部位トレ → 燃焼サーキット(○周) → クールダウン
 // ===================================================================
 import { QUESTIONS, buildProfile, planTitle, messageFor, foodFor, neatFor,
-         DIET_BASICS, SWELL_CARE, SLEEP_CARE, DIET_TOOL_URL, DISCLAIMER, PREGNANCY_NOTICE, SAFETY_NOTE } from './fatburn-data.js?v=6';
+         DIET_BASICS, SWELL_CARE, SLEEP_CARE, DIET_TOOL_URL, DISCLAIMER, PREGNANCY_NOTICE, SAFETY_NOTE } from './fatburn-data.js?v=7';
 import { build30Day, PHASE_INFO, repsFor } from './fatburn-program.js?v=3';
 import { AREA_LABEL } from './fatburn-engine.js?v=2';
 
@@ -82,24 +82,46 @@ function updateProgress(){
 }
 
 // ---- 生成 ----
-$('#bm-generate').addEventListener('click', () => {
+$('#bm-generate').addEventListener('click', async () => {
   const ans = collect();
   if (!isComplete(ans)){ alert('すべての質問にお答えください。'); return; }
   const profile = buildProfile(ans);
-  showLoading('あなたの30日 燃焼プランを作成しています…');
-  setTimeout(() => {
-    let days, pregnant = false;
-    if (profile.pregnant){
-      pregnant = true;
-      days = build30Day({ focusAreas:[], minutes:10, level:'beginner', careOnly:true });
-    } else {
-      days = build30Day(profile);
-    }
-    hideLoading();
-    renderPlan(profile, days, pregnant);
-    const r = $('#bm-result'); r.hidden = false; r.scrollIntoView({ behavior:'smooth', block:'start' });
-  }, 900);
+  const days = profile.pregnant
+    ? build30Day({ focusAreas:[], minutes:10, level:'beginner', careOnly:true })
+    : build30Day(profile);
+  await runAnalyzing();   // 解析リング＋項目チェックの演出（診断→結果の"間"）
+  renderPlan(profile, days, profile.pregnant);
+  const r = $('#bm-result'); r.hidden = false; r.scrollIntoView({ behavior:'smooth', block:'start' });
 });
+
+// 解析中の演出（進捗リング0→100% ＋ 診断項目の順次チェック）
+function runAnalyzing(){
+  return new Promise(resolve => {
+    const items = ['体のバランスと現在地', '気になる部位のクセ', '運動のレベル', 'むくみ・巡り', '生活リズム'];
+    const ov = document.createElement('div');
+    ov.className = 'analyzing-ov';
+    ov.innerHTML = `
+      <div class="az-card">
+        <div class="az-ring">
+          <svg viewBox="0 0 80 80"><circle class="az-track" cx="40" cy="40" r="34"/><circle class="az-prog" cx="40" cy="40" r="34"/></svg>
+          <span class="az-pct">0%</span>
+        </div>
+        <p class="az-title">あなたの体を解析しています</p>
+        <ul class="az-list">${items.map((t) => `<li><span class="az-check"></span>${t}</li>`).join('')}</ul>
+      </div>`;
+    document.body.appendChild(ov);
+    requestAnimationFrame(() => ov.classList.add('in'));
+    ov.querySelectorAll('.az-list li').forEach((li, i) => setTimeout(() => li.classList.add('done'), 380 + i * 330));
+    const pctEl = ov.querySelector('.az-pct'), progEl = ov.querySelector('.az-prog');
+    let p = 0;
+    const tick = setInterval(() => {
+      p = Math.min(100, p + 2); pctEl.textContent = p + '%';
+      progEl.style.strokeDashoffset = String(214 * (1 - p / 100));
+      if (p >= 100) clearInterval(tick);
+    }, 34);
+    setTimeout(() => { ov.classList.add('out'); setTimeout(() => { ov.remove(); resolve(); }, 400); }, 2200);
+  });
+}
 function showLoading(t){ $('#bm-loading-text').textContent = t || '処理中…'; $('#bm-loading').hidden = false; }
 function hideLoading(){ $('#bm-loading').hidden = true; }
 
@@ -193,6 +215,8 @@ function renderPlan(profile, days, pregnant){
   const prog = loadProgress();
   const title = pregnant ? 'やさしいマタニティ・ケアプラン' : planTitle(profile);
   const focusLabels = profile.focusAreas.map(a => AREA_LABEL[a]).filter(Boolean).join('・');
+  const chipLabels = profile.focusAreas.map(a => AREA_LABEL[a]).filter(Boolean);
+  const focusChips = (chipLabels.length ? chipLabels : ['全身をバランスよく']).map(l => `<span class="dx-chip">${l}</span>`).join('');
 
   const phaseCards = [1,2,3].map(p => {
     const info = PHASE_INFO[p];
@@ -222,12 +246,19 @@ function renderPlan(profile, days, pregnant){
     `<div class="bm-diet-item"><span class="bm-diet-icon">${x.icon}</span><div class="bm-diet-txt"><b>${x.title}</b><p>${x.body}</p></div></div>`).join('');
 
   $('#bm-result-body').innerHTML = `
-    <div class="lx-sec-head">
-      <span class="lx-sec-no">YOUR 30-DAY FAT BURN</span>
-      <h2 class="lx-sec-title">${title}</h2>
-      <p class="lx-sec-sub">${focusLabels ? focusLabels+'を重点に／' : ''}30日間・1日約${profile.minutes}分・自宅でOK</p>
-      <p class="lx-sec-note">脂肪は全身から燃え、選んだ部位は鍛えて形を整えます（特定の部位だけを落とすことはできません）。続けるほど、全身がすっきり引き締まります。</p>
-    </div>
+    <section class="result-hero">
+      <div class="rh-visual">
+        <img src="assets/result-visual.png?v=2" alt="" onerror="this.closest('.rh-visual').classList.add('no-img')">
+        <span class="rh-script">your body care</span>
+      </div>
+      <div class="rh-body">
+        <p class="announce">YOUR 30-DAY FAT BURN</p>
+        <h2 class="type-name">${title}</h2>
+        <div class="dx-chips">${focusChips}</div>
+        <p class="type-desc">${focusLabels ? focusLabels+'を重点に、' : ''}30日間・1日約${profile.minutes}分・自宅でOKのプランができました。</p>
+      </div>
+    </section>
+    <p class="lx-sec-note">脂肪は全身から燃え、選んだ部位は鍛えて形を整えます（特定の部位だけを落とすことはできません）。続けるほど、全身がすっきり引き締まります。</p>
     ${pregNotice}
     <div class="bm-phases">${phaseCards}</div>
     ${safetyBlock}

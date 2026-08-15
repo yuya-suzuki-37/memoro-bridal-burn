@@ -4,24 +4,28 @@
    上品・繊細・余白たっぷり。動的部は style.css(:root) を継承。
    ================================================================ */
 :root{
-  --lx-cream:#FBF7F1;
-  --lx-cream-2:#F4EEE2;
+  --lx-cream:#FFFDFC;                        /* 純白背景（kogao --bg）*/
+  --lx-cream-2:#FAF6F1;                      /* ソフトセクション（kogao --ivory）*/
   --lx-paper:#FFFFFF;
-  --lx-blush:#E6C3B8;
+  --lx-blush:#EAD4CD;                        /* kogao --blush */
   --lx-blush-soft:#F8EFE8;
-  --lx-rose:#C98A7C;        /* dusty rose アクセント */
+  --lx-rose:#C88A82;        /* kogao --rose（主アクセント）*/
   --lx-rose-deep:#B06E60;
-  --lx-terra:#BC6B53;       /* CTA（落ち着いたテラコッタ）*/
+  --lx-terra:#C88A82;       /* アクセントはローズに統一 */
+  --lx-green:#2F5A4A;       /* CTA（kogao 深緑）*/
+  --lx-green-deep:#26483B;
   --lx-sage:#8FA083;
   --lx-sage-deep:#69785E;
-  --lx-ink:#473F36;
-  --lx-ink-2:#6E6457;
+  --lx-ink:#33302B;                          /* kogao --ink */
+  --lx-ink-2:#6B645B;                        /* kogao --ink-soft */
   --lx-muted:#9E927E;
-  --lx-line:#E7DCCA;
-  --lx-gold:#B89A6A;
+  --lx-line:#E7DED2;                         /* kogao --line */
+  --lx-gold:#C2A268;                         /* kogao --gold */
+  --lx-gold-deep:#9A7B4F;                    /* kogao --gold-deep */
   --lx-serif:'Shippori Mincho','Noto Serif JP',serif;
   --lx-display:'Cormorant Garamond',serif;
-  --lx-sans:'Noto Sans JP',system-ui,sans-serif;
+  --lx-sans:'Zen Kaku Gothic New','Noto Sans JP',system-ui,sans-serif;
+  --lx-script:'Parisienne',cursive;          /* 筆記体 */
   --lx-en:'Inter',system-ui,sans-serif;
   /* 細い菱形ディバイダ */
   --lx-divider:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='12' viewBox='0 0 130 12'%3E%3Cline x1='6' y1='6' x2='56' y2='6' stroke='%23CBB39B' stroke-width='1'/%3E%3Cline x1='74' y1='6' x2='124' y2='6' stroke='%23CBB39B' stroke-width='1'/%3E%3Cpath d='M65 1.5 L69 6 L65 10.5 L61 6 Z' fill='%23C98A7C'/%3E%3C/svg%3E");

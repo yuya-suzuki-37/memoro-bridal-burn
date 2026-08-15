@@ -6,11 +6,11 @@
 <title>30日間脂肪燃焼ブートキャンプ｜Memoro Bridal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=1" />
-<link rel="stylesheet" href="redesign.css?v=1" />
-<link rel="stylesheet" href="pc.css?v=1" />
-<link rel="stylesheet" href="fatburn.css?v=1" />
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Parisienne&family=Noto+Serif+JP:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2" />
+<link rel="stylesheet" href="redesign.css?v=2" />
+<link rel="stylesheet" href="pc.css?v=2" />
+<link rel="stylesheet" href="fatburn.css?v=2" />
 </head>
 <body class="lx">
 
@@ -21,11 +21,11 @@
 
 <!-- ▼ ブートキャンプ識別バナー（自己完結・命名規則「30日間〇〇ブートキャンプ」） -->
 <style>
-.bc-banner{text-align:center;background:linear-gradient(180deg,#F4EEE2,#FBF7F1);border-bottom:1px solid #E7DCCA;padding:12px 20px 14px;font-family:'Shippori Mincho','Noto Serif JP',serif}
-.bc-banner .bc-eyebrow{display:block;font-family:'Noto Sans JP',system-ui,sans-serif;font-size:10px;letter-spacing:.32em;font-weight:700;color:#B89A6A;margin-bottom:6px}
-.bc-banner .bc-title{font-weight:700;font-size:clamp(1.02rem,3.6vw,1.22rem);letter-spacing:.08em;color:#473F36}
+.bc-banner{text-align:center;background:linear-gradient(180deg,#FAF6F1,#FFFDFC);border-bottom:1px solid #E7DED2;padding:12px 20px 14px;font-family:'Shippori Mincho','Noto Serif JP',serif}
+.bc-banner .bc-eyebrow{display:block;font-family:'Zen Kaku Gothic New',system-ui,sans-serif;font-size:10px;letter-spacing:.32em;font-weight:700;color:#C2A268;margin-bottom:6px}
+.bc-banner .bc-title{font-weight:700;font-size:clamp(1.02rem,3.6vw,1.22rem);letter-spacing:.08em;color:#33302B}
 .bc-banner .bc-title .bc-ico{margin-right:.4em}
-.bc-banner .bc-title b{color:#B89A6A;font-weight:700}
+.bc-banner .bc-title b{color:#C2A268;font-weight:700}
 </style>
 <div class="bc-banner">
   <span class="bc-eyebrow">30-DAY FAT BURN BOOTCAMP</span>
@@ -45,18 +45,23 @@
   </nav>
 </header>
 
-<!-- HERO -->
-<section class="lx-hero" id="top">
-  <div class="lx-hero-bg" aria-hidden="true"></div>
-  <div class="lx-hero-inner">
-    <p class="lx-hero-eyebrow">Burn &amp; Shape for your special day</p>
-    <h1 class="lx-hero-title">30日で、<br><i>燃やして、引き締める。</i></h1>
-    <p class="lx-hero-lead">
-      いまの体・気になる部位・とれる時間に合わせて、<br>
-      <strong>あなた専用の30日 脂肪燃焼プラン</strong>を自動作成。<br>
-      筋トレ＋燃焼サーキットで、自宅で無理なく引き締めます。
-    </p>
-    <a href="#start" class="lx-btn lx-btn-gold js-reveal">わたしの30日燃焼プランを作る</a>
+<!-- HERO（分離型：写真＋ロゴ overlay ＋ 分離クリームcatch）-->
+<section class="mbh" id="top">
+  <div class="mbh-photo">
+    <div class="mbh-bg"></div>
+    <div class="mbh-logo">Memoro<small>BRIDAL BODY</small></div>
+  </div>
+  <div class="mbh-text">
+    <p class="mbh-script">for your special day</p>
+    <h1 class="mbh-catch">式まで、あと<span class="accent">30</span>日。</h1>
+    <p class="mbh-hw">燃やして、引き締める毎日を。</p>
+    <div class="mbh-btnrow">
+      <a href="#start" class="lx-btn lx-btn-gold js-reveal">わたしの30日燃焼プランを作る</a>
+    </div>
+  </div>
+  <div class="mbh-detail">
+    <p class="mbh-lead">いまの体・気になる部位・とれる時間に合わせて、<b>あなた専用の30日 脂肪燃焼プラン</b>を自動作成。筋トレ＋燃焼サーキットで、自宅で無理なく引き締めます。</p>
+    <p class="mbh-note">完全無料 ・ 回答と進捗はこの端末内だけに保存されます</p>
   </div>
 </section>
 
@@ -107,6 +112,6 @@
 
 <div id="bm-loading" class="pc-loading" hidden><div class="pc-spin"></div><span id="bm-loading-text">プランを作成しています…</span></div>
 
-<script type="module" src="fatburn-app.js?v=5"></script>
+<script type="module" src="fatburn-app.js?v=6"></script>
 </body>
 </html>

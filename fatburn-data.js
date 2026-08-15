@@ -32,7 +32,7 @@ export function buildProfile(ans){
 }
 
 // ===== プラン名 =====
-import { AREA_LABEL } from './fatburn-engine.js';
+import { AREA_LABEL } from './fatburn-engine.js?v=2';
 export function planTitle(profile){
   const parts = profile.focusAreas.map(a => AREA_LABEL[a]).filter(Boolean);
   const head = parts.length>=3 ? '全身' : parts.slice(0,2).join('・');

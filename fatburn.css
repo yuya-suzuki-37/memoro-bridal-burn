@@ -182,3 +182,81 @@
 .bm-diet-cta-body b{ font-family:var(--lx-sans); font-size:13.5px; color:var(--lx-rose-deep); font-weight:600; }
 .bm-diet-cta-body span{ font-family:var(--lx-sans); font-size:12px; color:var(--lx-ink-2); line-height:1.7; }
 .bm-diet-cta-arrow{ font-size:22px; color:var(--lx-rose-deep); flex-shrink:0; }
+
+/* =================================================================
+   kogao統一テーマ（分離型hero / result-hero / 解析ローディング）
+   ================================================================= */
+/* clean flow: kogao同様 bc-banner → hero に（重複ロゴ/ナビを隠す）*/
+.lx-topbar, .lx-header{ display:none !important; }
+
+/* ---- 分離型ヒーロー（.mbh-* ＝ 既存.heroとの衝突回避）---- */
+.mbh{ position:relative; margin-bottom:6px; }
+.mbh-photo{ position:relative; height:54vh; min-height:380px; max-height:580px; overflow:hidden; }
+.mbh-bg{ position:absolute; inset:0; background:url('assets/hero-bride.png?v=2') center 20%/cover; animation:mbh-kenburns 22s ease-out infinite alternate; }
+@keyframes mbh-kenburns{ from{ transform:scale(1.03);} to{ transform:scale(1.14);} }
+.mbh-photo::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:130px; background:linear-gradient(to bottom,rgba(255,253,252,0),var(--lx-cream)); }
+.mbh-logo{ position:absolute; top:24px; left:0; right:0; z-index:2; text-align:center; font-family:var(--lx-serif); font-size:1.2rem; letter-spacing:.34em; text-indent:.34em; color:#fff; text-shadow:0 2px 18px rgba(60,45,30,.55); }
+.mbh-logo small{ display:block; font-family:var(--lx-sans); font-size:.5rem; letter-spacing:.42em; color:rgba(255,255,255,.92); text-indent:.42em; margin-top:4px; }
+.mbh-text{ position:relative; z-index:3; background:var(--lx-cream); margin-top:-44px; border-radius:36px 36px 0 0; padding:16px 28px 22px; text-align:center; width:min(920px,100%); margin-inline:auto; }
+.mbh-script{ font-family:var(--lx-script); font-size:clamp(1.4rem,6vw,1.9rem); color:var(--lx-rose); line-height:1; }
+.mbh-catch{ font-family:var(--lx-serif); font-weight:600; font-size:clamp(1.7rem,7vw,2.4rem); color:var(--lx-ink); line-height:1.45; letter-spacing:.02em; margin-top:4px; }
+.mbh-catch .accent{ color:var(--lx-gold); font-size:1.35em; padding:0 .04em; }
+.mbh-hw{ font-family:var(--lx-sans); font-size:clamp(.92rem,3.4vw,1.12rem); color:var(--lx-rose); margin:8px 0 18px; letter-spacing:.04em; }
+.mbh-btnrow{ text-align:center; }
+.mbh-detail{ text-align:center; padding:10px 20px 20px; width:min(720px,92vw); margin-inline:auto; }
+.mbh-lead{ margin:0 auto; max-width:34em; color:var(--lx-ink-2); font-size:clamp(.9rem,2.6vw,1.0rem); line-height:1.95; }
+.mbh-lead b{ color:var(--lx-ink); font-weight:600; }
+.mbh-note{ margin-top:16px; font-size:.72rem; letter-spacing:.1em; color:var(--lx-gold-deep); }
+
+/* ---- 主要CTA：kogaoの深緑primaryに統一（.pc-cta文脈は高詳細度で温存）---- */
+.lx-btn-gold{ background:var(--lx-green); color:#fff; box-shadow:0 14px 30px -12px rgba(47,90,74,.55); }
+.lx-btn-gold:hover{ background:var(--lx-green-deep); transform:translateY(-3px); }
+
+/* ---- 分離型 結果ヒーロー（rh-visual + rh-body）---- */
+.result-hero{ background:var(--lx-paper); border:1px solid var(--lx-line); border-radius:28px; padding:0; overflow:hidden; box-shadow:0 18px 50px -28px rgba(80,60,40,.35); animation:result-rise .7s cubic-bezier(.2,.8,.3,1) both; }
+.rh-visual{ position:relative; height:210px; overflow:hidden; background:linear-gradient(135deg,#F3E4DE,#E7CFC8 60%,#DDBFB6); }
+.rh-visual img{ width:100%; height:100%; object-fit:cover; object-position:center 32%; }
+.rh-visual::after{ content:''; position:absolute; inset:0; background:linear-gradient(to bottom,rgba(255,255,255,0) 42%,var(--lx-paper)); }
+.rh-visual.no-img img{ display:none; }
+.rh-script{ position:absolute; left:0; right:0; bottom:15px; z-index:2; text-align:center; font-family:var(--lx-script); font-size:clamp(1.7rem,6.5vw,2.4rem); color:#fff; text-shadow:0 2px 14px rgba(120,90,45,.55); letter-spacing:.02em; }
+.rh-body{ padding:24px 26px 30px; text-align:center; position:relative; z-index:3; }
+.result-hero .announce{ position:relative; display:inline-block; border:1px solid var(--lx-gold); padding:8px 22px; font-family:var(--lx-serif); font-size:.76rem; letter-spacing:.32em; text-indent:.32em; color:var(--lx-gold-deep); }
+.result-hero .announce::before,.result-hero .announce::after{ content:''; position:absolute; top:-1px; width:0; height:0; border-style:solid; border-color:var(--lx-gold) transparent transparent transparent; }
+.result-hero .announce::before{ left:-1px; border-width:10px 10px 0 0; }
+.result-hero .announce::after{ right:-1px; border-width:10px 0 0 10px; }
+.result-hero .type-name{ font-family:var(--lx-serif); font-weight:600; font-size:clamp(1.5rem,5.4vw,2.1rem); margin:.5em 0 .1em; color:var(--lx-ink); line-height:1.4; }
+.result-hero .type-desc{ color:var(--lx-ink-2); max-width:30em; margin:1em auto 0; font-size:.92rem; line-height:1.9; }
+.dx-chips{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:1.4em; }
+.dx-chip{ display:inline-flex; align-items:center; gap:.5em; font-family:var(--lx-serif); font-size:1rem; letter-spacing:.05em; color:#fff; background:linear-gradient(135deg,#CBAC70,#A9853E); border-radius:100px; padding:.48em 1.3em .48em 1.02em; box-shadow:0 12px 24px -13px var(--lx-gold-deep), inset 0 1px 0 rgba(255,255,255,.42); }
+.dx-chip::before{ content:"✓"; display:flex; align-items:center; justify-content:center; width:1.25em; height:1.25em; border-radius:50%; background:rgba(255,255,255,.94); color:#A9853E; font-size:.64em; font-weight:800; flex:none; box-shadow:0 1px 3px rgba(120,90,45,.28); }
+@keyframes result-rise{ from{ opacity:0; transform:translateY(24px) scale(.985);} to{ opacity:1; transform:none;} }
+@keyframes chip-pop{ 0%{ opacity:0; transform:translateY(10px) scale(.8);} 60%{ transform:translateY(0) scale(1.06);} 100%{ opacity:1; transform:none;} }
+.result-hero .dx-chip{ animation:chip-pop .5s cubic-bezier(.2,.8,.3,1) both; }
+.result-hero .dx-chip:nth-child(1){ animation-delay:.4s; }
+.result-hero .dx-chip:nth-child(2){ animation-delay:.55s; }
+.result-hero .dx-chip:nth-child(3){ animation-delay:.7s; }
+.result-hero .dx-chip:nth-child(4){ animation-delay:.85s; }
+.result-hero .dx-chip:nth-child(5){ animation-delay:1s; }
+
+/* ---- 解析中オーバーレイ（進捗リング＋項目チェック）---- */
+.analyzing-ov{ position:fixed; inset:0; z-index:9999; display:flex; align-items:center; justify-content:center; background:rgba(255,250,249,.84); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); opacity:0; transition:opacity .4s; }
+.analyzing-ov.in{ opacity:1; }
+.analyzing-ov.out{ opacity:0; }
+.az-card{ background:#fff; border-radius:24px; padding:38px 34px 32px; box-shadow:0 30px 70px -28px rgba(120,90,45,.5); text-align:center; width:min(340px,86vw); transform:translateY(14px) scale(.95); transition:transform .45s cubic-bezier(.2,.8,.3,1); }
+.analyzing-ov.in .az-card{ transform:none; }
+.az-ring{ position:relative; width:92px; height:92px; margin:0 auto 22px; }
+.az-ring svg{ width:100%; height:100%; transform:rotate(-90deg); }
+.az-track{ fill:none; stroke:#EEE6D8; stroke-width:6; }
+.az-prog{ fill:none; stroke:#D89189; stroke-width:6; stroke-linecap:round; stroke-dasharray:214; stroke-dashoffset:214; transition:stroke-dashoffset .12s linear; }
+.az-pct{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:var(--lx-serif); font-size:21px; color:#C0817A; }
+.az-title{ font-family:var(--lx-serif); font-size:16px; color:var(--lx-ink); margin:0 0 20px; letter-spacing:.03em; }
+.az-list{ list-style:none; padding:0; margin:0; text-align:left; display:flex; flex-direction:column; gap:11px; }
+.az-list li{ display:flex; align-items:center; gap:11px; font-size:13px; color:#B4ADA2; opacity:.45; transition:opacity .35s,color .35s; }
+.az-list li.done{ opacity:1; color:#8A5A54; }
+.az-check{ width:19px; height:19px; border-radius:50%; border:1.6px solid #DDD3C4; flex:none; position:relative; transition:all .35s; }
+.az-list li.done .az-check{ background:#D89189; border-color:#D89189; }
+.az-list li.done .az-check::after{ content:''; position:absolute; left:6px; top:3px; width:4px; height:8px; border:solid #fff; border-width:0 2px 2px 0; transform:rotate(45deg); }
+
+/* reveal（結果コンテンツの登場）*/
+.reveal{ animation:mbh-rise .7s cubic-bezier(.2,.7,.3,1) both; }
+@keyframes mbh-rise{ from{ opacity:0; transform:translateY(20px);} to{ opacity:1; transform:none;} }
