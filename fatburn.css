@@ -192,7 +192,7 @@
 /* ---- 分離型ヒーロー（.mbh-* ＝ 既存.heroとの衝突回避）---- */
 .mbh{ position:relative; margin-bottom:6px; }
 .mbh-photo{ position:relative; height:54vh; min-height:380px; max-height:580px; overflow:hidden; }
-.mbh-bg{ position:absolute; inset:0; background:url('assets/hero-bride.png?v=2') center 20%/cover; animation:mbh-kenburns 22s ease-out infinite alternate; }
+.mbh-bg{ position:absolute; inset:0; background:url('assets/hero-fatburn.png') center 20%/cover; animation:mbh-kenburns 22s ease-out infinite alternate; }
 @keyframes mbh-kenburns{ from{ transform:scale(1.03);} to{ transform:scale(1.14);} }
 .mbh-photo::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:130px; background:linear-gradient(to bottom,rgba(255,253,252,0),var(--lx-cream)); }
 .mbh-logo{ position:absolute; top:24px; left:0; right:0; z-index:2; text-align:center; font-family:var(--lx-serif); font-size:1.2rem; letter-spacing:.34em; text-indent:.34em; color:#fff; text-shadow:0 2px 18px rgba(60,45,30,.55); }
