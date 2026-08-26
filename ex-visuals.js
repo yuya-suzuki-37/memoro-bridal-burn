@@ -132,7 +132,13 @@ export const EX_VISUALS = {
       + label(790, 398, 'ひじを曲げて胸を床へ', 'middle')
       + badges([[290, 700], [800, 700], [1300, 700]]) },
 
-  // 膝つきプッシュアップ（真横・入門版・3コマ）※画像は上限リセット後に生成
+  // 膝つきプッシュアップ（真横・入門版・3コマ）
+  pt_knee_pushup: { img: 'assets/ex-kneepushup.png', vb: '0 0 1672 941',
+    overlay: guide(120, 432, 495, 562, 300, 395, '膝をついて、膝〜頭は一直線', 'middle')
+      + arrow('mk_kneepush', 'M745,455 L745,562')
+      + label(745, 428, 'ひじを曲げて胸を床へ', 'middle')
+      + badges([[300, 765], [760, 765], [1260, 765]]) },
+
 
   // スーパーマン（真横・胸腕脚を持ち上げ・3コマ）
   pt_superman: { img: 'assets/ex-superman.png', vb: '0 0 1672 941',
