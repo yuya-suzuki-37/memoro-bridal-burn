@@ -122,4 +122,41 @@ export const EX_VISUALS = {
       + arrow('mk_toe1', 'M372,606 L372,704')
       + arrow('mk_toe3', 'M1322,606 L1322,704')
       + badges([[350, 876], [820, 876], [1300, 876]]) },
+
+  // ── 第3バッチ：背中・胸の筋トレ ──
+
+  // プッシュアップ（真横・胸を床へ・3コマ）
+  pt_pushup: { img: 'assets/ex-pushup.png', vb: '0 0 1672 941',
+    overlay: guide(50, 378, 512, 560, 270, 345, '体は一直線（腰を反らない）', 'middle')
+      + arrow('mk_pushup', 'M790,425 L790,530')
+      + label(790, 398, 'ひじを曲げて胸を床へ', 'middle')
+      + badges([[290, 700], [800, 700], [1300, 700]]) },
+
+  // 膝つきプッシュアップ（真横・入門版・3コマ）※画像は上限リセット後に生成
+
+  // スーパーマン（真横・胸腕脚を持ち上げ・3コマ）
+  pt_superman: { img: 'assets/ex-superman.png', vb: '0 0 1672 941',
+    overlay: label(836, 120, '背中とお尻で、胸・腕・脚を同時に持ち上げる', 'middle')
+      + arrow('mk_super_a', 'M1120,545 L1120,432')
+      + arrow('mk_super_l', 'M1565,545 L1565,440')
+      + badges([[290, 690], [820, 690], [1320, 690]]) },
+
+  // スイマー（斜め上・対角の手脚交互・3コマ）
+  pt_swimmer: { img: 'assets/ex-swimmer.png', vb: '0 0 1672 941',
+    overlay: label(836, 120, '対角の手と脚を交互に上げる（水泳のように）', 'middle')
+      + arrow('mk_swim_a', 'M615,500 L615,405')
+      + arrow('mk_swim_l', 'M1050,450 L1050,358')
+      + badges([[290, 700], [810, 700], [1320, 700]]) },
+
+  // バックエクステンション（真横・上体起こし・3コマ）
+  pt_back_extension: { img: 'assets/ex-backext.png', vb: '0 0 1672 941',
+    overlay: label(760, 140, '胸から上体をゆっくり起こす', 'middle')
+      + arrow('mk_backext', 'M1470,540 Q1500,450 1508,360')
+      + guide(1120, 565, 1260, 565, 1190, 612, '脚は床につけたまま', 'middle')
+      + badges([[300, 720], [860, 720], [1390, 720]]) },
+
+  // Y-T-W（後ろ斜め上・肩甲骨・3コマ＝Y/T/Wの形）
+  pt_y_t_w: { img: 'assets/ex-ytw.png', vb: '0 0 1672 941',
+    overlay: label(836, 90, '腕でY・T・Wの形をつくる（肩甲骨を寄せる）', 'middle')
+      + `<g text-anchor="middle" font-family="${SERIF}" font-weight="700" font-size="50" fill="#9A7B4F"><text x="290" y="840">Y</text><text x="800" y="840">T</text><text x="1330" y="840">W</text></g>` },
 };
