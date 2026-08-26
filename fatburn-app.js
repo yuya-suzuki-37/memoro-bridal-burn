@@ -7,6 +7,7 @@ import { QUESTIONS, buildProfile, planTitle, messageFor, foodFor, neatFor,
          DIET_BASICS, SWELL_CARE, SLEEP_CARE, DIET_TOOL_URL, DISCLAIMER, PREGNANCY_NOTICE, SAFETY_NOTE } from './fatburn-data.js?v=7';
 import { build30Day, PHASE_INFO, repsFor } from './fatburn-program.js?v=3';
 import { AREA_LABEL } from './fatburn-engine.js?v=2';
+import { EX_VISUALS } from './ex-visuals.js?v=1';
 
 const $ = s => document.querySelector(s);
 const PROGRESS_KEY = 'memoro-fatburn-progress-v1';
@@ -319,14 +320,22 @@ function exerciseCard(ex, phase, taper, kind='strength'){
   const how = (ex.how||[]).map(cleanStep).filter(h => h && h!=='。').map(h => `<li>${h}</li>`).join('');
   const cues = ex.cues ? `<p class="bm-cue"><b>◎</b> ${ex.cues.do||''}　<b>×</b> ${ex.cues.dont||''}</p>` : '';
   const presc = kind==='plain' ? (ex.duration||'') : repsFor(ex, phase, taper, kind==='circuit');
-  return `<div class="bm-ex">
-    <div class="bm-ex-illust">${ex.illustration || ''}</div>
-    <div class="bm-ex-body">
+  const body = `<div class="bm-ex-body">
       <div class="bm-ex-head"><h5>${ex.name}</h5><span class="bm-ex-presc">${presc}</span></div>
       ${ex.purpose ? `<p class="bm-ex-purpose">${ex.purpose}</p>` : ''}
       <ol class="bm-ex-how">${how}</ol>
       ${cues}
-    </div>
+    </div>`;
+  const vis = EX_VISUALS[ex.id];
+  if (vis){   // 新ビジュアル（連続動作イラスト＋図解）を全幅表示
+    return `<div class="bm-ex bm-ex-rich">
+    <div class="ex-vis"><img src="${vis.img}?v=1" alt="${ex.name}の連続動作" loading="lazy"><svg class="ex-vis-ovl" viewBox="${vis.vb}" preserveAspectRatio="none" aria-hidden="true">${vis.overlay}</svg></div>
+    ${body}
+  </div>`;
+  }
+  return `<div class="bm-ex">
+    <div class="bm-ex-illust">${ex.illustration || ''}</div>
+    ${body}
   </div>`;
 }
 
