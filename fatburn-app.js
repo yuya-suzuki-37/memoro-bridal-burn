@@ -7,7 +7,7 @@ import { QUESTIONS, buildProfile, planTitle, messageFor, foodFor, neatFor,
          DIET_BASICS, SWELL_CARE, SLEEP_CARE, DIET_TOOL_URL, DISCLAIMER, PREGNANCY_NOTICE, SAFETY_NOTE } from './fatburn-data.js?v=7';
 import { build30Day, PHASE_INFO, repsFor } from './fatburn-program.js?v=3';
 import { AREA_LABEL } from './fatburn-engine.js?v=2';
-import { EX_VISUALS } from './ex-visuals.js?v=1';
+import { EX_VISUALS } from './ex-visuals.js?v=2';
 
 const $ = s => document.querySelector(s);
 const PROGRESS_KEY = 'memoro-fatburn-progress-v1';

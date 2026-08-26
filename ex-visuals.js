@@ -77,4 +77,49 @@ export const EX_VISUALS = {
     overlay: label(565, 450, '左右に重心を移す', 'middle')
       + label(1090, 490, '後ろへ斜めにクロス', 'middle')
       + badges([[310, 905], [830, 905], [1360, 905]]) },
+
+  // ── 第2バッチ：燃焼サーキット（低衝撃有酸素）──
+
+  // ハイニー（正面・もも上げ・3コマ）
+  cd_highknee: { img: 'assets/ex-highknee.png', vb: '0 0 1672 941',
+    overlay: arrow('mk_highknee', 'M1400,655 L1400,470')
+      + label(836, 92, 'お腹の力で、ひざを腰の高さまで速く', 'middle')
+      + badges([[355, 895], [833, 895], [1290, 895]]) },
+
+  // サイドステップ・タッチ（正面・左右往復・3コマ）
+  cd_sidestep: { img: 'assets/ex-sidestep.png', vb: '0 0 1672 941',
+    overlay: arrow('mk_sstepL', 'M842,158 L440,158')
+      + arrow('mk_sstepR', 'M842,158 L1244,158')
+      + label(842, 116, '左右にテンポよく往復', 'middle')
+      + badges([[356, 905], [830, 905], [1360, 905]]) },
+
+  // ボクサー・ジャブ（正面・左右パンチ・3コマ）
+  cd_boxer: { img: 'assets/ex-boxer.png', vb: '0 0 1672 941',
+    overlay: label(836, 84, '左右交互にまっすぐパンチ', 'middle')
+      + arrow('mk_boxer2', 'M702,252 L800,220')
+      + arrow('mk_boxer3', 'M1496,252 L1392,216')
+      + label(836, 872, 'ひじは伸ばしきらないように', 'middle')
+      + badges([[330, 905], [820, 905], [1345, 905]]) },
+
+  // ニー・トゥ・エルボー（正面・対角ひねり・3コマ）
+  cd_kneeelbow: { img: 'assets/ex-kneeelbow.png', vb: '0 0 1672 941',
+    overlay: label(836, 80, '対角のひじとひざを近づける', 'middle')
+      + label(836, 120, 'お腹をひねって脇腹（くびれ）に', 'middle')
+      + arrow('mk_ke3', 'M1262,452 L1210,374')
+      + badges([[372, 900], [804, 900], [1290, 900]]) },
+
+  // マウンテンクライマー（横・プランク膝寄せ・3コマ）
+  cd_mtnclimber: { img: 'assets/ex-mtnclimber.png', vb: '0 0 1672 941',
+    overlay: guide(180, 402, 516, 560, 300, 352, '頭からかかとまで一直線', 'middle')
+      + arrow('mk_mtn3', 'M1368,560 Q1306,506 1250,474')
+      + label(1250, 452, 'ひざを胸へ交互に', 'middle')
+      + badges([[300, 735], [820, 735], [1320, 735]]) },
+
+  // クイック・トウタップ（正面・段差つま先タッチ・3コマ）
+  cd_toetap: { img: 'assets/ex-toetap.png', vb: '0 0 1672 941',
+    overlay: label(836, 84, 'つま先で軽快に交互タッチ', 'middle')
+      + label(836, 124, '足首をやわらかく弾ませる', 'middle')
+      + arrow('mk_toe1', 'M372,606 L372,704')
+      + arrow('mk_toe3', 'M1322,606 L1322,704')
+      + badges([[350, 876], [820, 876], [1300, 876]]) },
 };
