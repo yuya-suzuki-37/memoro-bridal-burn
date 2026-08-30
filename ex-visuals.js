@@ -165,4 +165,44 @@ export const EX_VISUALS = {
   pt_y_t_w: { img: 'assets/ex-ytw.png', vb: '0 0 1672 941',
     overlay: label(836, 90, '腕でY・T・Wの形をつくる（肩甲骨を寄せる）', 'middle')
       + `<g text-anchor="middle" font-family="${SERIF}" font-weight="700" font-size="50" fill="#9A7B4F"><text x="290" y="840">Y</text><text x="800" y="840">T</text><text x="1330" y="840">W</text></g>` },
+
+  // ── 第4バッチ：体幹（コア）──
+
+  // バードドッグ（斜め上・四つん這い対角伸ばし・3コマ）
+  pt_bird_dog: { img: 'assets/ex-birddog.png', vb: '0 0 1672 941',
+    overlay: label(760, 110, '対角の手と脚をまっすぐ伸ばす（左右交互）', 'middle')
+      + arrow('mk_bd_arm', 'M1295,452 L1140,433')
+      + arrow('mk_bd_leg', 'M1460,466 L1605,447')
+      + guide(640, 446, 832, 458, 726, 408, '背中はフラットに', 'middle')
+      + badges([[230, 720], [720, 720], [1290, 720]]) },
+
+  // バイシクルクランチ（斜め上・対角ひねり・3コマ）
+  pt_bicycle_crunch: { img: 'assets/ex-bicycle.png', vb: '0 0 1672 941',
+    overlay: label(760, 88, '対角のひじとひざを近づける（左右交互）', 'middle')
+      + label(760, 130, 'お腹をひねって脇腹（くびれ）に', 'middle')
+      + badges([[250, 700], [790, 700], [1310, 700]]) },
+
+  // レッグレイズ（真横・脚上げ下ろし・3コマ）
+  pt_leg_raise: { img: 'assets/ex-legraise.png', vb: '0 0 1672 941',
+    overlay: label(760, 110, '脚をそろえて上げ、ゆっくり下ろす', 'middle')
+      + label(760, 152, '腰は床につけたまま（反らさない）', 'middle')
+      + arrow('mk_legraise', 'M130,275 L130,500')
+      + badges([[420, 730], [890, 730], [1360, 730]]) },
+
+  // サイドプランク（横向きキープ・1コマ＝番号なし・一直線ガイド）
+  pt_side_plank: { img: 'assets/ex-sideplank.png', vb: '0 0 1672 941',
+    overlay: guide(320, 340, 1460, 720, 800, 296, '頭から足首まで一直線に', 'middle')
+      + label(780, 862, 'お尻を落とさず体側でキープ', 'middle') },
+
+  // ロシアンツイスト（座位・左右ひねり・3コマ）
+  pt_russian_twist: { img: 'assets/ex-russian.png', vb: '0 0 1672 941',
+    overlay: label(800, 90, '上体を後ろに傾け、左右にひねってタッチ', 'middle')
+      + label(800, 132, '背筋は伸ばして脇腹（くびれ）に', 'middle')
+      + badges([[270, 878], [820, 878], [1360, 878]]) },
+
+  // ホロウホールド（真横・キープ・1コマ＝番号なし）
+  pt_hollow_hold: { img: 'assets/ex-hollow.png', vb: '0 0 1672 941',
+    overlay: label(770, 120, '肩と脚を少し浮かせて浅いバナナ型にキープ', 'middle')
+      + arrow('mk_hollow', 'M720,458 L720,572')
+      + label(720, 432, '腰は床に押しつける', 'middle') },
 };
