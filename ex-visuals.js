@@ -205,4 +205,47 @@ export const EX_VISUALS = {
     overlay: label(770, 120, '肩と脚を少し浮かせて浅いバナナ型にキープ', 'middle')
       + arrow('mk_hollow', 'M720,458 L720,572')
       + label(720, 432, '腰は床に押しつける', 'middle') },
+
+  // ── 第5バッチ：お尻・脚 ──
+
+  // ヒップスラスト（真横・ベンチ肩乗せ・3コマ）
+  pt_hip_thrust: { img: 'assets/ex-hipthrust.png', vb: '0 0 1672 941',
+    overlay: label(760, 120, 'お尻を持ち上げ、肩〜ひざを一直線に', 'middle')
+      + arrow('mk_hipthrust', 'M850,635 L850,510')
+      + guide(1180, 432, 1515, 468, 1350, 402, '頂点は水平にキープ', 'middle')
+      + badges([[250, 730], [780, 730], [1320, 730]]) },
+
+  // ドンキーキック（真横・四つん這い蹴り上げ・3コマ）
+  pt_donkey_kick: { img: 'assets/ex-donkey.png', vb: '0 0 1672 941',
+    overlay: label(760, 110, 'ひざ90度のまま、お尻で天井へ蹴り上げる', 'middle')
+      + arrow('mk_donkey', 'M1440,545 Q1490,430 1525,325')
+      + guide(345, 432, 565, 446, 455, 400, '背中はフラットに', 'middle')
+      + badges([[280, 730], [800, 730], [1300, 730]]) },
+
+  // ファイアハイドラント（後ろ斜め上・横開き・3コマ）
+  pt_fire_hydrant: { img: 'assets/ex-firehydrant.png', vb: '0 0 1672 941',
+    overlay: label(760, 108, 'ひざ90度のまま、真横へ開く（腰の高さまで）', 'middle')
+      + label(760, 150, '骨盤は水平に保つ', 'middle')
+      + arrow('mk_fire', 'M1360,555 Q1470,465 1555,405')
+      + badges([[280, 760], [800, 760], [1300, 760]]) },
+
+  // クラムシェル（横向き貝殻開き・3コマ）
+  pt_clamshell: { img: 'assets/ex-clamshell.png', vb: '0 0 1672 941',
+    overlay: label(760, 175, 'かかとを付けたまま、上のひざを開く', 'middle')
+      + label(760, 217, '骨盤を後ろに倒さない', 'middle')
+      + arrow('mk_clam', 'M1405,560 L1405,448')
+      + badges([[300, 690], [820, 690], [1350, 690]]) },
+
+  // ステップアップ（真横・台への昇り・3コマ）
+  pt_step_up: { img: 'assets/ex-stepup.png', vb: '0 0 1672 941',
+    overlay: label(760, 120, '台に足を乗せ、前脚とお尻で押し上がる', 'middle')
+      + label(760, 162, '反動を使わずゆっくり', 'middle')
+      + arrow('mk_stepup', 'M980,580 L1035,378')
+      + badges([[290, 905], [820, 905], [1330, 905]]) },
+
+  // ウォールシット（真横・壁×空気椅子・1コマ＝番号なし）
+  pt_wall_sit: { img: 'assets/ex-wallsit.png', vb: '0 0 1672 941',
+    overlay: label(1080, 255, '壁に背中をつけ、ひざ90度でキープ', 'middle')
+      + guide(645, 562, 948, 556, 800, 522, '太ももは床と平行', 'middle')
+      + label(990, 600, 'ひざは90度', 'start') },
 };
